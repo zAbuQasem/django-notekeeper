@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+ django:
+    build: .
+ nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    ports:
+      - "5000:80"
+    depends_on:
+      - django
